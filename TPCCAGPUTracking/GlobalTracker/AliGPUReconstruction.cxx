@@ -47,10 +47,10 @@
 #include "ITStracking/TrackerTraitsCPU.h"
 #include "TRDBase/TRDGeometryFlat.h"
 #else
-namespace o2 { namespace ITS { class TrackerTraits {}; class TrackerTraitsCPU : public TrackerTraits {}; }}
+namespace o2 { namespace its { class TrackerTraits {}; class TrackerTraitsCPU : public TrackerTraits {}; }}
 namespace o2 { namespace trd { struct TRDGeometryFlat {}; }}
 #endif
-using namespace o2::ITS;
+using namespace o2::its;
 using namespace o2::TPC;
 using namespace o2::trd;
 
@@ -70,7 +70,7 @@ AliGPUReconstruction::AliGPUReconstruction(const AliGPUCASettingsProcessing& cfg
 	mParam.SetDefaults(&mEventSettings);
 	if (mProcessingSettings.deviceType == CPU)
 	{
-		mITSTrackerTraits.reset(new o2::ITS::TrackerTraitsCPU);
+		mITSTrackerTraits.reset(new o2::its::TrackerTraitsCPU);
 	}
 	memset(mSliceOutput, 0, sizeof(mSliceOutput));
 }

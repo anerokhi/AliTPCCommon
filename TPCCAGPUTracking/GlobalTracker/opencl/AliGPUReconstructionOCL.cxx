@@ -6,7 +6,7 @@
 #ifdef HAVE_O2HEADERS
 #include "ITStracking/TrackerTraitsCPU.h"
 #else
-namespace o2 { namespace ITS { class TrackerTraits {}; class TrackerTraitsCPU : public TrackerTraits {}; }}
+namespace o2 { namespace its { class TrackerTraits {}; class TrackerTraitsCPU : public TrackerTraits {}; }}
 #endif
 
 #include "AliGPUCADataTypes.h"
@@ -50,7 +50,7 @@ extern "C" char _makefile_opencl_program_GlobalTracker_opencl_AliGPUReconstructi
 AliGPUReconstructionOCL::AliGPUReconstructionOCL(const AliGPUCASettingsProcessing& cfg) : AliGPUReconstructionDeviceBase(cfg)
 {
 	mProcessingSettings.deviceType = OCL;
-	mITSTrackerTraits.reset(new o2::ITS::TrackerTraitsCPU);
+	mITSTrackerTraits.reset(new o2::its::TrackerTraitsCPU);
 
 	ocl = new AliGPUReconstructionOCLInternals;
 	if (ocl == NULL)

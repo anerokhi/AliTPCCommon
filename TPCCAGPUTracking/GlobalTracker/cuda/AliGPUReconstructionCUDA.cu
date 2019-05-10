@@ -70,7 +70,7 @@ texture<calink, cudaTextureType1D, cudaReadModeElementType> gAliTexRefu;
 #include "Utils.cu"
 #endif
 #else
-namespace o2 { namespace ITS { class TrackerTraits {}; class TrackerTraitsNV : public TrackerTraits {}; }}
+namespace o2 { namespace its { class TrackerTraits {}; class TrackerTraitsNV : public TrackerTraits {}; }}
 #endif
 
 #define RANDOM_ERROR
@@ -80,7 +80,7 @@ AliGPUReconstructionCUDA::AliGPUReconstructionCUDA(const AliGPUCASettingsProcess
 {
 	mInternals = new AliGPUReconstructionCUDAInternals;
 	mProcessingSettings.deviceType = CUDA;
-	mITSTrackerTraits.reset(new o2::ITS::TrackerTraitsNV);
+	mITSTrackerTraits.reset(new o2::its::TrackerTraitsNV);
 }
 
 AliGPUReconstructionCUDA::~AliGPUReconstructionCUDA()
